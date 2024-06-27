@@ -1,0 +1,38 @@
+# Arquivos gerados pelo sistema operacional
+.DS_Store
+
+# Arquivos de log
+*.log
+
+# Módulos do Node.js
+node_modules/
+
+# Arquivos de build do Docker
+docker-compose.override.yml
+docker-compose.override.yml.tmpl
+*.override.yml
+*.override.yml.tmpl
+
+# Arquivos de ambiente
+.env
+
+# Arquivos de build e cache
+*.dockerfile
+*.dockerfile.*
+*.docker-compose.yml
+*.docker-compose.override.yml
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.swp
+
+# Dependências e pacotes específicos de usuário
+npm-debug.log
+yarn-debug.log*
+yarn-error.log*
+
+# Outros arquivos específicos do seu projeto que devem ser ignorados
+# Por exemplo:
+# config.json
+# secrets.json
