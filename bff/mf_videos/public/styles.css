@@ -3,20 +3,26 @@
   background-color: rgb(101, 101, 101);
 }
 
-ul{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Cria 5 colunas com largura igual */
-  gap: 20px; /* Espaço entre os itens */
-  list-style-type: none; /* Remove os bullets da lista */
-  padding: 0;
+.input-label{
+  color: white;
 }
 
-div{ 
+#video-title::placeholder {
+  color: #e8e8e8; /* Cor desejada para o placeholder */
+}
+
+.search-container {
   display: flex;
 }
 
+.search-container button {
+  background-color: #f2f2f2;
+  border: none;
+  cursor: pointer;
+}
+
 .glass{
-  color: gray;
+  color: rgb(54, 54, 54);
   background-color: rgba(0, 0, 0, 0);
 }
 
@@ -26,19 +32,19 @@ div{
 }
 
 .search-container input[type="text"] {
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
+  padding: .5rem;
+  font-size: 1rem;
+  border: .06rem solid #ccc;
   border-right: none;
-  border-radius: 4px 0 0 4px;
+  border-radius: .25rem 0 0 .25rem;
 }
 
 .search-container button {
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
+  padding: .5rem;
+  font-size: 1rem;
+  border: .06rem solid #ccc;
   border-left: none;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 .25rem .25rem 0;
   background-color: #f1f1f1;
   cursor: pointer;
 }
@@ -48,15 +54,30 @@ div{
 }
 
 iframe{
-  width: 250px;
-  height: 180px;
+  width: 15.63rem;
+  height: 11.25rem;
 }
 
 .video-list {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* Cria 5 colunas com largura igual */
-  gap: 20px; /* Espaço entre os itens */
+  gap: 1.25rem; /* Espaço entre os itens */
   list-style-type: none; /* Remove os bullets da lista */
   padding: 0;
+}
+
+.fav-button{
+  position: relative;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  right: 1.8rem;
+  bottom: .8rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.fav-button i{
+  background-color: rgba(255, 0, 0, 0);
+  color: gold;
 }
 
