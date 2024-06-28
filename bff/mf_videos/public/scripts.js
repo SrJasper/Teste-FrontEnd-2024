@@ -1,16 +1,15 @@
 function execute() {
-
   const inputText = document.getElementById('video-title').value;
-  console.log(inputText);
 
-  //lógica para deletar os vídeos antigos
+  // Limpar vídeos antigos
+  const videoContainer = document.getElementById('video-list');
+  videoContainer.innerHTML = '';
 
+  // Buscar novos vídeos
   fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${inputText}&key=AIzaSyArtELnxz8SIrcU180rMwakn9R7aXeQxMQ`)
     .then(response => response.json())
     .then(data => {
-      const videoContainer = document.getElementById('video-list'); // Elemento onde os vídeos serão exibidos
-
-      data.items.forEach((video) => {
+      data.items.forEach(video => {
         const videoId = video.id.videoId;
         const iframe = document.createElement('iframe');
         iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}`);
@@ -29,4 +28,3 @@ function execute() {
     })
     .catch(error => console.error('Erro ao carregar vídeos do YouTube:', error));
 }
-
