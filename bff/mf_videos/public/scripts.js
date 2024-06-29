@@ -70,3 +70,7 @@ function fav(id) {
     }
   }
 }
+
+module.exports = {
+  fav
+};
