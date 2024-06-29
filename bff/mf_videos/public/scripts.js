@@ -25,7 +25,7 @@ function execute() {
         icon.className = "fa-regular fa-star";
         button.appendChild(icon);
         button.onclick = function () {
-          fav();
+          fav(videoId);
         };
 
         const videoTitle = document.createElement("p");
@@ -44,6 +44,29 @@ function execute() {
     );
 }
 
-function fav() {
-  console.log("Favoritando vídeo...");
+function fav(id) {
+  let cachedIds = localStorage.getItem('cachedIds');
+  if (!cachedIds) {
+    // Se não houver nenhum ID salvo ainda, cria a string com o primeiro ID
+    cachedIds = id.toString();
+    localStorage.setItem('cachedIds', cachedIds);
+    console.log(`ID ${id} salvo no cache.`);
+  } else {
+    // Divide a string em um array de IDs
+    let idArray = cachedIds.split(',');
+
+    // Verifica se o ID já está na lista
+    if (idArray.includes(id.toString())) {
+      // Se estiver, remove o ID da lista
+      idArray = idArray.filter(item => item !== id.toString());
+      cachedIds = idArray.join(',');
+      localStorage.setItem('cachedIds', cachedIds);
+      console.log(`ID ${id} removido do cache.`);
+    } else {
+      // Caso contrário, adiciona o ID à lista
+      cachedIds += `,${id}`;
+      localStorage.setItem('cachedIds', cachedIds);
+      console.log(`ID ${id} salvo no cache.`);
+    }
+  }
 }
