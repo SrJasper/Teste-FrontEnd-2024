@@ -1,4 +1,4 @@
-const { fav } = require('./scripts.js');
+const { fav, toggleIcon } = require('./scripts.js');
 
 describe('fav function', () => {
   beforeEach(() => {
@@ -20,5 +20,23 @@ describe('fav function', () => {
     localStorage.setItem('cachedIds', '1,2');
     fav(2);
     expect(localStorage.getItem('cachedIds')).toBe('1');
+  });
+});
+
+describe ('toggleIcon function', () => {
+  it('should toggle the icon class from regular to solid', () => {
+    const icon = document.createElement('i');
+    icon.classList.add('fa-regular');
+    toggleIcon(icon);
+    expect(icon.classList.contains('fa-regular')).toBe(false);
+    expect(icon.classList.contains('fa-solid')).toBe(true);
+  });
+
+  it('should toggle the icon class from solid to regular', () => {
+    const icon = document.createElement('i');
+    icon.classList.add('fa-solid');
+    toggleIcon(icon);
+    expect(icon.classList.contains('fa-solid')).toBe(false);
+    expect(icon.classList.contains('fa-regular')).toBe(true);
   });
 });

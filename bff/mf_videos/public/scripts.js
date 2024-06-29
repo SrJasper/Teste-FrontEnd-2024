@@ -21,11 +21,22 @@ function execute() {
         const button = document.createElement("button");
         button.className = "fav-button";
         const icon = document.createElement("i");
-        // icon.className = 'fa-solid fa-star';
-        icon.className = "fa-regular fa-star";
+        const cachedIds = localStorage.getItem('cachedIds') ? localStorage.getItem('cachedIds').split(',') : [];
+        
+        for (let i = 0; i < cachedIds.length; i++) {
+          if (cachedIds[i] === videoId) {
+            console.log("AQUI")
+            icon.className = 'fa-solid fa-star';
+            break;
+          } else {
+            icon.className = 'fa-regular fa-star';
+          }
+        }
+
         button.appendChild(icon);
         button.onclick = function () {
           fav(videoId);
+          toggleIcon(icon); 
         };
 
         const videoTitle = document.createElement("p");
@@ -71,6 +82,19 @@ function fav(id) {
   }
 }
 
+function toggleIcon(icon) {
+  if (icon.classList.contains('fa-regular')) {
+    icon.classList.remove('fa-regular');
+    icon.classList.add('fa-solid');
+  } else {
+    icon.classList.remove('fa-solid');
+    icon.classList.add('fa-regular');
+  }
+}
+//AQUI
+
 module.exports = {
-  fav
+  fav,
+  execute,
+  toggleIcon
 };
