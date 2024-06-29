@@ -7,6 +7,13 @@
   color: white;
 }
 
+ul{
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(4, 18rem);
+  padding: 0;
+}
+
 #video-title::placeholder {
   color: #e8e8e8; /* Cor desejada para o placeholder */
 }
@@ -56,14 +63,6 @@
 iframe{
   width: 15.63rem;
   height: 11.25rem;
-}
-
-.video-list {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Cria 5 colunas com largura igual */
-  gap: 1.25rem; /* Espaço entre os itens */
-  list-style-type: none; /* Remove os bullets da lista */
-  padding: 0;
 }
 
 .fav-button{
