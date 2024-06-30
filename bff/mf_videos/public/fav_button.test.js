@@ -1,6 +1,6 @@
-const { fav, toggleIcon } = require('./scripts.js');
+const { fav, toggleIcon, showFavoriteVideos } = require('./scripts.js');
 
-describe('fav function', () => {
+describe('fav button', () => {
   beforeEach(() => {
     localStorage.clear();
   });
@@ -40,3 +40,13 @@ describe ('toggleIcon function', () => {
     expect(icon.classList.contains('fa-regular')).toBe(true);
   });
 });
+
+// describe(' fav list function', () => {
+//   beforeEach(() => {
+//     localStorage.clear();
+//   });
+
+//   it('should return an empty array if there are no cached IDs', () => {
+//     expect(showFavoriteVideos()).toEqual([]);
+//   });
+// })
