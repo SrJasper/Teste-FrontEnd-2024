@@ -1,0 +1,36 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(101, 101, 101);
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.buttons-container button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  background-color: #f0f0f000;
+  cursor: pointer;
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.5rem;
+}
+
+.fav-counter {
+  background-color: gold;
+  display: flex;
+  border-radius: 5rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+}
