@@ -1,12 +1,15 @@
 function updateFavoriteCounter() {
   const cachedIds = localStorage.getItem("cachedIds");
-  const label = cachedIds.toString().split(",").length;
-  console.log(label);
-  if (cachedIds) {
-    document.getElementById("fav-counter").textContent = label;
+  if(cachedIds) {
+    const label = cachedIds.toString().split(",").length;
+    console.log(label);
+    document.getElementById("fav-counter").textContent = label; //AQUI
+    return label;
   } else {
-    console.log("no cachedIds");
+    return("no cachedIds");
   }
 }
 
 updateFavoriteCounter();
+
+module.exports =  { updateFavoriteCounter };
