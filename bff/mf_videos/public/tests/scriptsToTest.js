@@ -72,7 +72,6 @@ function videoGenerator(video, videoContainer, favList) {
   
   for (let i = 0; i <= cachedIds.length; i++) {
     if (cachedIds[i] === id) {
-      console.log("aqui");
       icon.className = 'fa-solid fa-star';
       break;
     } else {
@@ -126,4 +125,9 @@ function toggleIcon(icon) {
   }
 }
 
-
+module.exports = {
+  fav,
+  showFavoriteVideos,
+  searchVideos,
+  toggleIcon
+};

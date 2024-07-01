@@ -1,4 +1,4 @@
-const { fav, toggleIcon, showFavoriteVideos } = require('./scripts.js');
+const { fav, toggleIcon, showFavoriteVideos } = require('./scriptsToTest.js');
 
 describe('fav button', () => {
   beforeEach(() => {
