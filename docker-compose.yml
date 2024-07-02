@@ -1,5 +1,17 @@
 version: '3'
 services:
+  mf_videos:
+    build: ./bff/mf_videos
+    ports:
+      - "3050:3050"
+    volumes:
+      - ./bff/mf_videos:/app
+  mf_drawer:
+    build: ./bff/mf_drawer
+    ports:
+      - "3080:3080"
+    volumes:
+      - ./bff/mf_drawer:/app
   bff:
     build: ./bff
     ports:

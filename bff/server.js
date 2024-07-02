@@ -16,5 +16,5 @@ app.get('/', (req, res) => {
 // Porta em que o servidor vai escutar
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-    console.log(`Servidor rodando na porta ${port}`);
+    console.log(`Servidor rodando na porta http://localhost:${port}`);
 });
