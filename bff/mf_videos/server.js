@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
 });
 
 const server = app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`mf_videos runing`);
 });
 
 module.exports = { app, server };

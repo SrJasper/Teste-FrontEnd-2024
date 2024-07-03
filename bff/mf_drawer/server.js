@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
 });
 
 const server = app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`mf_drawer running`);
 });
 
 module.exports = { app, server };
