@@ -17,10 +17,8 @@ let lastCachedIds = '';
 
 app.post("/get-string", (req, res) => {
   if (req.body.cachedIds === undefined) {
-    // Se cachedIds não estiver definido, retorne o último valor armazenado
     res.json({ cachedIds: lastCachedIds });
   } else {
-    // Se cachedIds estiver definido, atualize lastCachedIds e retorne o valor
     const { cachedIds } = req.body;
     lastCachedIds = cachedIds; 
     res.json({ cachedIds });
@@ -31,6 +29,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
+module.exports = { app };
+
 app.listen(port, () => {
-  console.log(`mf_drawer ready`);
 });
