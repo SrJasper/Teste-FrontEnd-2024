@@ -3,6 +3,7 @@ const app = express();
 const port = 3050;
 
 app.use(express.static('public'));
+app.use(express.json());
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -11,18 +12,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
-});
-
-app.get('/videos', (req, res) => {
-    res.sendFile(__dirname + '/public/videos.html');
-});
-
-app.get('/favoritos', (req, res) => {
-    res.sendFile(__dirname + '/public/favoritos.html');
-});
-
 app.listen(port, () => {
-    console.log(`mf_drawer listening at http://localhost:${port}`);
+    console.log(`mf_videos ready`);
 });
