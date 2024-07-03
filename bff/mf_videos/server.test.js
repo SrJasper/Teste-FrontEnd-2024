@@ -1,5 +1,5 @@
 const request = require('supertest');
-const { app } = require('./server'); // Importe o app do seu server.js
+const { app } = require('./server'); 
 
 describe('Testes das rotas do mf_video', () => {
   it('Should respond with index.html in "/" route', async () => {

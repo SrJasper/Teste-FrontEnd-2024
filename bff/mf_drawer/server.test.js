@@ -17,11 +17,10 @@ describe('Testes das rotas do mf_drawer', () => {
     expect(response.status).toBe(200);
     expect(response.body.cachedIds).toBe(cachedIds);
   });
-
   
   it('Should respond with the last cachedIds in "/get-string" route', async () => {
     const response = await request(app).post('/get-string');
     expect(response.status).toBe(200);
-    expect(response.body.cachedIds).toBe('example_cached_ids'); // Verifica se é igual ao último valor de cachedIds
+    expect(response.body.cachedIds).toBe('example_cached_ids');
   });
 });
