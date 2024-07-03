@@ -38,7 +38,6 @@ setInterval(() => {
 }, 100);
 
 function showFavoriteVideos(){
-  console.log('acessou a function no mf_drawer');
   fetch('http://localhost:3050/show-favorites')
   .then(response => {
     if (!response.ok) {
@@ -46,12 +45,20 @@ function showFavoriteVideos(){
     }
     return response.json();
   })
-  .then(favoriteVideos => {
-    console.log('Vídeos favoritos:', favoriteVideos);
-    // Faça algo com os vídeos favoritos, como exibir na interface
+  .catch(error => {
+    console.error('Erro ao obter os vídeos favoritos:', error.message);
+  });
+}
+
+function showDefaultVideos(){
+  fetch('http://localhost:3050/show-default')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Não foi possível obter os vídeos favoritos.');
+    }
+    return response.json();
   })
   .catch(error => {
     console.error('Erro ao obter os vídeos favoritos:', error.message);
-    // Trate o erro conforme necessário
   });
 }

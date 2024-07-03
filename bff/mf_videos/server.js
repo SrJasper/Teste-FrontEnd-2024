@@ -16,14 +16,20 @@ app.use((req, res, next) => {
 const { showFavoriteVideos } = require('./public/scripts_module');
 app.get('/show-favorites', (req, res) => {
     showFavoriteVideos();
-    res.json({message: 'acessou a rota'});
+    res.json({message: 'acessou a rota de vídeos favoritos'});
+});
+const { showDefaultVideos } = require('./public/scripts_module');
+app.get('/show-default', (req, res) => {
+    showDefaultVideos();
+    res.json({message: 'acessou a rota de vídeos padrão'});
 });
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-module.exports = { app, port };
-
-app.listen(port, () => {
+const server = app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
 });
+
+module.exports = { app, server };

@@ -36,6 +36,14 @@ function showFavoriteVideos() {
   // return cachedIds;
 }
 
+function showDefaultVideos() {
+  console.log("chamou a função defaultVideos");
+  // const videoContainer = document.getElementById("video-list");
+  // videoContainer.innerHTML = "";
+  // const searchContainer = document.getElementById("search-container");
+  // searchContainer.style.display = "block";
+}
+
 // function videoGenerator(video, videoContainer, favList) {
 //   let id;
 //   if (!video.id.videoId) {
@@ -81,4 +89,4 @@ function showFavoriteVideos() {
 //   videoContainer.appendChild(videoDiv);
 // }
 
-module.exports = { showFavoriteVideos };
+module.exports = { showFavoriteVideos, showDefaultVideos};

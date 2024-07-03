@@ -1,7 +1,11 @@
 const request = require('supertest');
-const { app } = require('./server'); // Caminho para o seu arquivo server.js
+const { app, server } = require('./server'); // Caminho para o seu arquivo server.js
 
 describe('Testes das rotas do mf_drawer', () => {
+  afterAll(() => {
+    server.close();
+  });
+
   it('Should respond index.html in "/" route', async () => {
     const response = await request(app).get('/');
     expect(response.status).toBe(200);
