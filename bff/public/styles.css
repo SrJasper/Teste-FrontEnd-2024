@@ -1,4 +1,18 @@
+*{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.207);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .pages-container{
+  padding: .5rem;
   display:flex;
   flex-direction:row;
   gap: .5rem

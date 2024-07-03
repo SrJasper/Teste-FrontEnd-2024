@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
 const port = 3050;
+const path = require("path");
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
 app.use((req, res, next) => {
@@ -17,6 +18,10 @@ app.get('/show-favorites', (req, res) => {
     showFavoriteVideos();
     res.json({message: 'acessou a rota'}); // Exemplo: retorne os vídeos favoritos como JSON
 });
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+  });
 
 app.listen(port, () => {
     console.log(`mf_videos ready`);

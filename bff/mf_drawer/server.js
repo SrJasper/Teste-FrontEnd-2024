@@ -3,7 +3,6 @@ const path = require("path");
 const app = express();
 const port = 3080;
 
-// Servir arquivos estáticos da pasta 'public'
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
@@ -18,15 +17,16 @@ let lastCachedIds = '';
 
 app.post("/get-string", (req, res) => {
   if (req.body.cachedIds === undefined) {
+    // Se cachedIds não estiver definido, retorne o último valor armazenado
     res.json({ cachedIds: lastCachedIds });
-} else {
+  } else {
+    // Se cachedIds estiver definido, atualize lastCachedIds e retorne o valor
     const { cachedIds } = req.body;
-    lastCachedIds = cachedIds;
+    lastCachedIds = cachedIds; 
     res.json({ cachedIds });
-}
+  }
 });
 
-// Rota para servir o 'index.html'
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });

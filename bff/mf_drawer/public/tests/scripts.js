@@ -10,6 +10,4 @@ function updateFavoriteCounter() {
   }
 }
 
-updateFavoriteCounter();
-
 module.exports =  { updateFavoriteCounter };
