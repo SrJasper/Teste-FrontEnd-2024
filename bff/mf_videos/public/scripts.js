@@ -22,9 +22,18 @@ function searchVideos() {
     );
 }
 
+function defaultVideos() {
+  const videoContainer = document.getElementById("video-list");
+  videoContainer.innerHTML = "";
+  const searchContainer = document.getElementById("search-container");
+  searchContainer.style.display = "block";
+}
+
 function showFavoriteVideos() {
   const videoContainer = document.getElementById("video-list");
   videoContainer.innerHTML = "";
+  const searchContainer = document.getElementById("search-container");
+  searchContainer.style.display = "none";
 
   const cachedIds = localStorage.getItem("cachedIds")
     ? localStorage.getItem("cachedIds").split(",")
