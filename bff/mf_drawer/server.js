@@ -18,14 +18,10 @@ let lastCachedIds = '';
 
 app.post("/get-string", (req, res) => {
   if (req.body.cachedIds === undefined) {
-    // Se cachedIds não estiver definido, retorne o último valor armazenado
-    console.log("Rota acessada no segundo MFE - cachedIds não definido, retornando último valor:", lastCachedIds);
     res.json({ cachedIds: lastCachedIds });
 } else {
-    // Se cachedIds estiver definido, atualize lastCachedIds e retorne o valor
     const { cachedIds } = req.body;
     lastCachedIds = cachedIds;
-    console.log("Rota acessada no segundo MFE - cachedIds definido:", cachedIds);
     res.json({ cachedIds });
 }
 });

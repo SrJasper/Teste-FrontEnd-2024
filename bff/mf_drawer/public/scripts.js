@@ -1,9 +1,7 @@
 // Função para atualizar localStorage com dados recebidos do servidor
 function updateLocalStorage(cachedIds) {
   localStorage.setItem('cachedIds', cachedIds);
-  console.log('localStorage:', cachedIds);
   if(!cachedIds) {
-    console.log('Não tem mais vídeos');
     const favCounterLabel = document.getElementById('fav-counter');
     if (favCounterLabel) {
       favCounterLabel.textContent = 0;
@@ -34,6 +32,11 @@ function fetchDataAndUpdateLocalStorage() {
       console.error('Erro ao obter dados do servidor:', error);
   });
 }
+
+setInterval(() => {
+  fetchDataAndUpdateLocalStorage();
+}, 100); 
+
 
 // Chamar a função para buscar e atualizar os dados a cada intervalo
 // setInterval(fetchDataAndUpdateLocalStorage, 5000); // Atualizar a cada 5 segundos

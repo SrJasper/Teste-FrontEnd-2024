@@ -121,28 +121,6 @@ function fav(id) {
       localStorage.setItem("cachedIds", cachedIds);
     }
   }
-  // Request para o BFF
-  // const url1 = "http://localhost:3000/transfer-string";
-  // fetch(url1, {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify({ cachedIds }),
-  // })
-  //   .then((response) => {
-  //     if (!response.ok) {
-  //       throw new Error("Erro ao enviar dados para o BFF");
-  //     }
-  //     return response.json();
-  //   })
-  //   .then((data) => {
-  //     console.log("Dados enviados com sucesso para o BFF:", data);
-  //     // Lógica adicional após enviar os dados, se necessário
-  //   })
-  //   .catch((error) => {
-  //     console.error("Erro ao enviar dados para o BFF:", error);
-  //   });
   const url = "http://localhost:3080/get-string";
   fetch(url, {
     method: "POST",
