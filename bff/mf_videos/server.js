@@ -12,6 +12,12 @@ app.use((req, res, next) => {
     next();
 });
 
+const { showFavoriteVideos } = require('./public/scripts_module');
+app.get('/show-favorites', (req, res) => {
+    showFavoriteVideos();
+    res.json({message: 'acessou a rota'}); // Exemplo: retorne os vídeos favoritos como JSON
+});
+
 app.listen(port, () => {
     console.log(`mf_videos ready`);
 });

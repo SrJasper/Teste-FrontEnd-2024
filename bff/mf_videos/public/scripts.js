@@ -22,42 +22,42 @@ function searchVideos() {
     );
 }
 
-function showFavoriteVideos() {
-  const videoContainer = document.getElementById("video-list");
-  videoContainer.innerHTML = "";
+// function showFavoriteVideos() {
+//   const videoContainer = document.getElementById("video-list");
+//   videoContainer.innerHTML = "";
 
-  const cachedIds = localStorage.getItem("cachedIds")
-    ? localStorage.getItem("cachedIds").split(",")
-    : [];
+//   const cachedIds = localStorage.getItem("cachedIds")
+//     ? localStorage.getItem("cachedIds").split(",")
+//     : [];
 
-  if (cachedIds.length === 0) {
-    const message = document.createElement("p");
-    message.textContent = "Nenhum vídeo favorito encontrado.";
-    videoContainer.appendChild(message);
-    return;
-  }
-  // const key = process.env.key;
-  const key = "AIzaSyArtELnxz8SIrcU180rMwakn9R7aXeQxMQ";
+//   if (cachedIds.length === 0) {
+//     const message = document.createElement("p");
+//     message.textContent = "Nenhum vídeo favorito encontrado.";
+//     videoContainer.appendChild(message);
+//     return;
+//   }
+//   // const key = process.env.key;
+//   const key = "AIzaSyArtELnxz8SIrcU180rMwakn9R7aXeQxMQ";
 
-  fetch(
-    `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${cachedIds}&key=${key}`
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      data.items.forEach((video) => {
-        videoGenerator(video, videoContainer, false);
-      });
-    })
-    .catch((error) => {
-      console.error("Erro ao carregar vídeos do YouTube:", error);
-    });
+//   fetch(
+//     `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${cachedIds}&key=${key}`
+//   )
+//     .then((response) => response.json())
+//     .then((data) => {
+//       data.items.forEach((video) => {
+//         videoGenerator(video, videoContainer, false);
+//       });
+//     })
+//     .catch((error) => {
+//       console.error("Erro ao carregar vídeos do YouTube:", error);
+//     });
 
-  for (let i = 0; i < cachedIds.length; i++) {
-    videoGenerator(cachedIds[i], videoContainer, true);
-  }
+//   for (let i = 0; i < cachedIds.length; i++) {
+//     videoGenerator(cachedIds[i], videoContainer, true);
+//   }
 
-  return cachedIds;
-}
+//   return cachedIds;
+// }
 
 function videoGenerator(video, videoContainer, favList) {
   let id;

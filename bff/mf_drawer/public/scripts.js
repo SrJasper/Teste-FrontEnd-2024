@@ -35,8 +35,23 @@ function fetchDataAndUpdateLocalStorage() {
 
 setInterval(() => {
   fetchDataAndUpdateLocalStorage();
-}, 100); 
+}, 100);
 
-
-// Chamar a função para buscar e atualizar os dados a cada intervalo
-// setInterval(fetchDataAndUpdateLocalStorage, 5000); // Atualizar a cada 5 segundos
+function showFavoriteVideos(){
+  console.log('acessou a function no mf_drawer');
+  fetch('http://localhost:3050/show-favorites')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Não foi possível obter os vídeos favoritos.');
+    }
+    return response.json();
+  })
+  .then(favoriteVideos => {
+    console.log('Vídeos favoritos:', favoriteVideos);
+    // Faça algo com os vídeos favoritos, como exibir na interface
+  })
+  .catch(error => {
+    console.error('Erro ao obter os vídeos favoritos:', error.message);
+    // Trate o erro conforme necessário
+  });
+}
