@@ -14,36 +14,22 @@
     />
   </head>
   <body>
-    <script src="scripts.js"></script>
-    <script type="module" src="scripts_module.js"></script>
-    <h1>MF_Video</h1>
-    <button onclick="defaultVideos()">
-      oia
-    </button>
-
+    <h1>MF_Video</h1>    
     <div class="search-container" id="search-container">
       <input
-        type="text"
-        id="video-title"
-        class="input-label"
-        placeholder="Search videos..."
+      type="text"
+      id="video-title"
+      class="input-label"
+      placeholder="Search videos..."
       />
       <button onclick="searchVideos()">
         <i class="fa-solid fa-magnifying-glass glass"></i>
       </button>
-      <button onclick="showFavoriteVideos()">
-        favoritos
-      </button>
     </div>
-
+    
     <div id="video-container">
       <ul id="video-list"></ul>
     </div>
-
-    <script src="../public/scripts_module.js"></script>
-    <script>
-        // Chame a função diretamente se estiver no escopo global
-        // showFavoriteVideos();
-    </script>
   </body>
+  <script src="scripts.js"></script>
 </html>

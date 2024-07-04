@@ -38,12 +38,12 @@ setInterval(() => {
 }, 100);
 
 function showFavoriteVideos(){
-  fetch('http://localhost:3050/show-favorites')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Não foi possível obter os vídeos favoritos.');
-    }
-    return response.json();
+  fetch('http://localhost:3050/show-videos', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ type: 'favorite' }), // Exemplo de dados
   })
   .catch(error => {
     console.error('Erro ao obter os vídeos favoritos:', error.message);
@@ -51,12 +51,12 @@ function showFavoriteVideos(){
 }
 
 function showDefaultVideos(){
-  fetch('http://localhost:3050/show-default')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Não foi possível obter os vídeos favoritos.');
-    }
-    return response.json();
+  fetch('http://localhost:3050/show-videos', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ type: 'default' }), // Exemplo de dados
   })
   .catch(error => {
     console.error('Erro ao obter os vídeos favoritos:', error.message);

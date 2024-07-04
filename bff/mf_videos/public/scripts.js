@@ -1,6 +1,5 @@
 function searchVideos() {
-  // const key = process.env.key;
-  const key = "AIzaSyArtELnxz8SIrcU180rMwakn9R7aXeQxMQ";
+  const key = "AIzaSyArtELnxz8SIrcU180rMwakn9R7aXeQxMQ"; //Deveria estar em um dotenv
   const inputText = document.getElementById("video-title").value;
 
   // Limpar vídeos antigos
@@ -70,7 +69,7 @@ function showFavoriteVideos() {
 
 function videoGenerator(video, videoContainer, favList) {
   let id;
-  if (!video.id.videoId) {
+  if (!video.id?.videoId) {
     id = video.id;
   } else {
     id = video.id.videoId;
@@ -103,7 +102,7 @@ function videoGenerator(video, videoContainer, favList) {
   };
 
   const videoTitle = document.createElement("p");
-  videoTitle.textContent = video.snippet.title;
+  videoTitle.textContent = video.snippet?.title;
 
   const videoDiv = document.createElement("li");
   videoDiv.appendChild(iframe);
@@ -151,8 +150,38 @@ function fav(id) {
     .catch((error) => {
       console.error("Erro ao enviar dados para o MFE2:", error);
     });
-  
 }
+
+let lastEntry = undefined;
+function buttonObserver() {
+  fetch("http://localhost:3050/show-videos", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {              
+      const { type } = data;
+      if(lastEntry === type) {
+        return;
+      }
+      if (type === "favorite") {
+        showFavoriteVideos();
+        console.log("deveria trocar lastEntry para favorite");
+        lastEntry = 'favorite';
+      } else {
+        defaultVideos();
+        lastEntry = 'default';
+      }
+    })
+    .catch((error) => {
+      console.error("Erro ao obter os vídeos favoritos:", error.message);
+    });
+}
+setInterval(() => {
+ buttonObserver();
+}, 100);
 
 function toggleIcon(icon) {
   if (icon.classList.contains("fa-regular")) {
